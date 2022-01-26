@@ -7,11 +7,9 @@ export XDG_CONFIG_HOME = $(HOME)/.config
 export STOW_DIR = $(DOTFILES_DIR)
 export ACCEPT_EULA=Y
 
-.PHONY: test
-
 all: $(OS)
 
-macos: sudo core-macos packages link
+macos: core-macos packages link
 
 linux: core-linux link
 
@@ -27,12 +25,6 @@ stow-macos: brew
 
 stow-linux: core-linux
 	is-executable stow || apt-get -y install stow
-
-sudo:
-ifndef GITHUB_ACTION
-	sudo -v
-	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-endif
 
 packages: brew-packages cask-apps node-packages rust-packages
 
@@ -55,19 +47,11 @@ brew:
 bash: BASH=$(HOMEBREW_PREFIX)/bin/bash
 bash: SHELLS=/private/etc/shells
 bash: brew
-ifdef GITHUB_ACTION
-	if ! grep -q $(BASH) $(SHELLS); then \
-		brew install bash bash-completion@2 pcre && \
-		sudo append $(BASH) $(SHELLS) && \
-		sudo chsh -s $(BASH); \
-	fi
-else
-	if ! grep -q $(BASH) $(SHELLS); then \
-		brew install bash bash-completion@2 pcre && \
-		sudo append $(BASH) $(SHELLS) && \
-		chsh -s $(BASH); \
-	fi
-endif
+if ! grep -q $(BASH) $(SHELLS); then \
+	brew install bash bash-completion@2 pcre && \
+	sudo append $(BASH) $(SHELLS) && \
+	chsh -s $(BASH); \
+fi
 
 git: brew
 	brew install git git-extras
@@ -96,6 +80,3 @@ node-packages: npm
 rust-packages: CARGO=$(HOMEBREW_PREFIX)/bin/cargo
 rust-packages: rust
 	$(CARGO) install $(shell cat install/Rustfile)
-
-test:
-	eval $$(fnm env); bats test
