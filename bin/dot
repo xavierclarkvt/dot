@@ -13,17 +13,12 @@ sub_help () {
   echo "   edit             Open dotfiles in IDE ($DOTFILES_IDE) and Git GUI ($DOTFILES_GIT_GUI)"
   echo "   help             This help message"
   echo "   macos            Apply macOS system defaults"
-  echo "   test             Run tests"
   echo "   update           Update packages and pkg managers (OS, brew, npm, gem)"
 }
 
 sub_edit () {
   sh -c "$DOTFILES_IDE $DOTFILES_DIR"
   sh -c "$DOTFILES_GIT_GUI $DOTFILES_DIR"
-}
-
-sub_test () {
-  bats "$DOTFILES_DIR"/test/*.bats
 }
 
 sub_update () {
