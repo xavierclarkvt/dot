@@ -7,6 +7,10 @@ export HOMEBREW_PREFIX=$($DOTFILES_DIR/bin/is-supported $DOTFILES_DIR/bin/is-arm
 
 # Prepend new items to path (if directory exists)
 
+prepend-path() {
+  [ -d $1 ] && PATH="$1:$PATH"
+}
+
 prepend-path "/bin"
 prepend-path "/usr/bin"
 prepend-path "/usr/local/bin"
