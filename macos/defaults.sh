@@ -67,12 +67,10 @@ sudo echo '<?xml version="1.0" encoding="UTF-8"?>
         <string>property</string>
         <string>--set</string>
         <string>{"UserKeyMapping":[
-
             {
               "HIDKeyboardModifierMappingSrc": 0x700000039,
-              "HIDKeyboardModifierMappingDst": 0x70000006D
+              "HIDKeyboardModifierMappingDst": 0x7000000E0
             }
-
         ]}</string>
     </array>
     <key>RunAtLoad</key>
