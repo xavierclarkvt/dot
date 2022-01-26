@@ -12,13 +12,8 @@ The hyper key is defined as `⌘ + ⌥ + ⌃` (control + option + command). Pres
 
 | Key | App                |
 | --- | ------------------ |
-| C   | Google Chrome      |
-| D   | Dash               |
 | F   | Finder             |
-| G   | SourceTree (Git)   |
-| M   | Mail               |
 | P   | System Preferences |
-| S   | Spotify            |
 | T   | Terminal           |
 
 ## Window Management
@@ -33,10 +28,6 @@ The hyper key is defined as `⌘ + ⌥ + ⌃` (control + option + command). Pres
 | k       | Increase height   |
 | j       | Decrease width    |
 | l       | Increase width    |
-| 2       | Set 2x2 grid      |
-| 3       | Set 3x3 grid      |
-| 4       | Set 4x4 grid      |
 | /       | To next screen    |
-| ,       | Snap to grid      |
 | (space) | Maximize window   |
 | .       | Minimize window   |
