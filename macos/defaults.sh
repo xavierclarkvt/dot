@@ -54,7 +54,7 @@ sudo systemsetup -setrestartfreeze on
 # Keyboard & Input                                                            #
 ###############################################################################
 
-# Remap capslock to F18 function key (for use in Hammerspoon) - util here: https://hidutil-generator.netlify.app/
+# Remap capslock to left control - util here: https://hidutil-generator.netlify.app/
 sudo echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
