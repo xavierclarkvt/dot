@@ -31,9 +31,7 @@ sudo softwareupdate -i -a
 xcode-select --install
 ```
 
-The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS). Now there are two options:
-
-1. Clone manually into the desired location:
+The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS). Next you will need to clone the repo manually into the desired location:
 
 ```bash
 git clone https://github.com/webpro/dotfiles.git ~/.dotfiles
