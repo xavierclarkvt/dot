@@ -37,8 +37,8 @@ eval "$(dircolors -b "$DOTFILES_DIR"/system/.dir_colors)"
 
 # Clean up
 
-unset CURRENT_SCRIPT SCRIPT_PATH DOTFILE EXTRAFILE
+unset CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 
 # Export
 
-export DOTFILES_DIR DOTFILES_EXTRA_DIR
+export DOTFILES_DIR
