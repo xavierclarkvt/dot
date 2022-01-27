@@ -13,7 +13,7 @@ macos: sudo core-macos packages link
 
 linux: core-linux link
 
-core-macos: brew git npm rust
+core-macos: brew bash git npm rust
 
 core-linux:
 	apt-get update
@@ -50,6 +50,9 @@ brew:
 	echo 'eval "$$($(HOMEBREW_PREFIX)/bin/brew shellenv)"' >> $(HOME)/.bash_profile
 	eval "$$($(HOMEBREW_PREFIX)/bin/brew shellenv)"
 	
+bash: BASH=$(HOMEBREW_PREFIX)/bin/bash
+bash: SHELLS=/private/etc/shells
+
 git: brew
 	brew install git 
 	brew install git-extras
