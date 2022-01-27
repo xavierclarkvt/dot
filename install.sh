@@ -19,7 +19,6 @@ core_macos () {
 
     # get_brew
     is-executable brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	echo 'eval "$( '"$HOMEBREW_PREFIX"'/bin/brew shellenv )"' >> $HOME/.bash_profile
 	eval "$(""$HOMEBREW_PREFIX""/bin/brew shellenv)"
 
     # get_git
@@ -54,7 +53,7 @@ core_linux () {
 
 start_stow () {
     for FILE in $(ls -A $DOTFILES_DIR/runcom); do 
-        if [ -f $HOME/$FILE -a ! -h $HOME/$FILE ]; then 
+        if [ -f $HOME/$FILE -a ! -h $HOME/$FILE ]; then # if file exists and not symlink, make backup
 		    mv -v $HOME/$FILE{,.bak}; 
         fi; 
     done

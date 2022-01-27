@@ -2,13 +2,13 @@
 
 These are my MacOS and Ubuntu dotfiles. Due to it's heavy reliance on Homebrew, really only for MacOS. 
 
-Ubuntu behavior only installs stow and links dotfiles.
+Ubuntu behavior only installs stow and links dotfiles. Does not support bash shells, you will need to install `zsh`.
 
 Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want a custom version of this, use his.
 
 ## Highlights
 
-- Minimal efforts to install everything, using a [Makefile](./Makefile)
+- Minimal efforts to install everything, using a [shell script](./install.sh)
 - Mostly based around Homebrew, Caskroom and Node.js, latest Bash + GNU Utils
 - Great [Window management](./config/hammerspoon/README.md) (using Hammerspoon)
 - Fast and colored prompt
@@ -21,7 +21,7 @@ Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want 
 - [Homebrew](https://brew.sh) (packages: [Brewfile](./install/Brewfile))
 - [homebrew-cask](https://github.com/Homebrew/homebrew-cask) (packages: [Caskfile](./install/Caskfile))
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
-- Latest Git, Bash 4, Python 3, GNU coreutils, curl, Ruby
+- Latest Git, Python 3, GNU coreutils, curl, Rust
 - [Hammerspoon](https://www.hammerspoon.org) (config: [keybindings & window management](./config/hammerspoon))
 - [Mackup](https://github.com/lra/mackup) (sync application settings)
 - `$EDITOR` (and Git editor) is [GNU nano](https://www.nano-editor.org)
@@ -35,18 +35,26 @@ sudo softwareupdate -i -a
 xcode-select --install
 ```
 
+If you don't have `zsh` as your current shell, you will need to install it:
+
+```bash
+sudo apt -y install zsh
+chsh -s $(which zsh)
+exec zsh -l
+```
+
 The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS). Next you will need to clone the repo manually into the desired location:
 
 ```bash
 git clone https://github.com/xavierclarkvt/dot.git ~/.dotfiles
 ```
 
-Use the [Makefile](./Makefile) to install everything [listed above](#package-overview), and symlink [runcom](./runcom)
+Use the [install script](./install.sh) to install everything [listed above](#package-overview), and symlink [runcom](./runcom)
 and [config](./config) (using [stow](https://www.gnu.org/software/stow/)):
 
 ```bash
 cd ~/.dotfiles
-make
+zsh install.sh
 ```
 
 ## Post-Installation
