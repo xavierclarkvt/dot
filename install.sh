@@ -19,8 +19,8 @@ core_macos () {
 
     # get_brew
     is-executable brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	echo 'eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"' >> $HOME/.bash_profile
-	eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+	echo 'eval "$( $HOMEBREW_PREFIX/bin/brew shellenv )"' >> $HOME/.bash_profile
+	eval "$( $HOMEBREW_PREFIX/bin/brew shellenv )"
 
     # get_git
 	brew install git git-extras
@@ -53,7 +53,7 @@ core_linux () {
 }
 
 start_stow () {
-    for FILE in $(ls -A $DOTFILES_DIRruncom); do 
+    for FILE in $(ls -A $DOTFILES_DIR/runcom); do 
         if [ -f $HOME/$FILE -a ! -h $HOME/$FILE ]; then 
 		    mv -v $HOME/$FILE{,.bak}; 
         fi; 
@@ -66,8 +66,6 @@ start_stow () {
 if [[ $OS == 'macos' ]]; then
     start_sudo
     core_macos
-    get_packages
-    stow_macos
     start_stow
 else 
     core_linux
