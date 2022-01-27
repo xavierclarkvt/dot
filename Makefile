@@ -7,6 +7,8 @@ export XDG_CONFIG_HOME = $(HOME)/.config
 export STOW_DIR = $(DOTFILES_DIR)
 export ACCEPT_EULA=Y
 
+.ONESHELL:
+
 all: $(OS)
 
 macos: sudo core-macos packages link
