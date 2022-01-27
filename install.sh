@@ -40,7 +40,11 @@ core_macos () {
     # get_rust
     brew install rust
 
+    # get_stow
     $DOTFILES_DIR/bin/is-executable stow || brew install stow
+
+    # install Oh-My-ZSH
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 }
 
 core_linux () {
