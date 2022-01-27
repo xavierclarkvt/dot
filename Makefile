@@ -47,7 +47,7 @@ unlink: stow-$(OS)
 
 brew:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
-	eval "$(HOMEBREW_PREFIX)/bin/brew shellenvs"
+	eval "$($(HOMEBREW_PREFIX)/bin/brew shellenv)"
 
 
 git: brew
