@@ -19,8 +19,8 @@ core_macos () {
 
     # get_brew
     is-executable brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	echo 'eval "$( $HOMEBREW_PREFIX/bin/brew shellenv )"' >> $HOME/.bash_profile
-	eval "$( $HOMEBREW_PREFIX/bin/brew shellenv )"
+	echo 'eval "$( '"$HOMEBREW_PREFIX"'/bin/brew shellenv )"' >> $HOME/.bash_profile
+	eval "$( ""$HOMEBREW_PREFIX""/bin/brew shellenv )"
 
     # get_git
 	brew install git git-extras
