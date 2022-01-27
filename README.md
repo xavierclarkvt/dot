@@ -22,6 +22,8 @@ Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want 
 - [homebrew-cask](https://github.com/Homebrew/homebrew-cask) (packages: [Caskfile](./install/Caskfile))
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
 - Latest Git, Python 3, GNU coreutils, curl, Rust
+- Oh-My-ZSH
+- A default Firefox instance
 - [Hammerspoon](https://www.hammerspoon.org) (config: [keybindings & window management](./config/hammerspoon))
 - [Mackup](https://github.com/lra/mackup) (sync application settings)
 - `$EDITOR` (and Git editor) is [GNU nano](https://www.nano-editor.org)
@@ -80,11 +82,3 @@ Commands:
     macos            Apply macOS system defaults
     update           Update packages and pkg managers (OS, brew, npm, gem)
 ```
-
-## Additional Resources
-
-- [Awesome Dotfiles](https://github.com/webpro/awesome-dotfiles)
-- [Homebrew](https://brew.sh)
-- [Homebrew Cask](https://github.com/Homebrew/homebrew-cask)
-- [Bash prompt](https://wiki.archlinux.org/index.php/Color_Bash_Prompt)
-- [Solarized Color Theme for GNU ls](https://github.com/seebi/dircolors-solarized)
