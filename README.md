@@ -34,7 +34,7 @@ xcode-select --install
 The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS). Next you will need to clone the repo manually into the desired location:
 
 ```bash
-git clone https://github.com/webpro/dotfiles.git ~/.dotfiles
+git clone https://github.com/xavierclarkvt/dot.git ~/.dotfiles
 ```
 
 Use the [Makefile](./Makefile) to install everything [listed above](#package-overview), and symlink [runcom](./runcom)
