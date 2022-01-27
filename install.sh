@@ -58,8 +58,7 @@ start_stow () {
         fi; 
     done
 	mkdir -p $XDG_CONFIG_HOME
-	stow -t $HOME $DOTFILES_DIR/runcom
-	stow -t $XDG_CONFIG_HOME $DOTFILES_DIR/config
+    ( cd $DOTFILES_DIR; stow -t $HOME runcom; stow -t $XDG_CONFIG_HOME config )
 }
 
 if [[ $OS == 'macos' ]]; then
