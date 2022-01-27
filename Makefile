@@ -46,7 +46,8 @@ brew:
 
 
 git: brew
-	brew install git git-extras
+	brew install git 
+	brew install git-extras
 
 npm: brew-packages
 	fnm install --lts
