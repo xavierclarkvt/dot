@@ -13,7 +13,7 @@ macos: sudo core-macos packages link
 
 linux: core-linux link
 
-core-macos: brew git npm ruby rust
+core-macos: brew git npm rust
 
 core-linux:
 	apt-get update
@@ -47,8 +47,8 @@ unlink: stow-$(OS)
 
 brew:
 	is-executable brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	echo 'eval "$$($(HOMEBREW_PREFIX))/bin/brew shellenv)"' >> $(HOME)/.bash_profile
-	eval "$$($(HOMEBREW_PREFIX))/bin/brew shellenv)"
+	echo 'eval "$$($(HOMEBREW_PREFIX)/bin/brew shellenv)"' >> $(HOME)/.bash_profile
+	eval "$$($(HOMEBREW_PREFIX)/bin/brew shellenv)"
 	
 git: brew
 	brew install git 
@@ -56,9 +56,6 @@ git: brew
 
 npm: brew-packages
 	fnm install --lts
-
-ruby: brew
-	brew install ruby
 
 rust: brew
 	brew install rust
