@@ -43,6 +43,7 @@ unlink: stow-$(OS)
 
 brew:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
+	PATH="$(HOMEBREW_PREFIX):$(PATH)"
 
 
 git: brew
