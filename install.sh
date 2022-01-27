@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(dirname $0)"
-OS="$($DOTFILES_DIR/bin/is-supported $DOTFILES_DIR/bin/is-macos macos linux)"
-HOMEBREW_PREFIX="$DOTFILES_DIR/bin/is-supported $DOTFILES_DIR/bin/is-arm64 /opt/homebrew /usr/local"
+OS="$(""$DOTFILES_DIR""/bin/is-supported ""$DOTFILES_DIR""/bin/is-macos macos linux)"
+HOMEBREW_PREFIX="$("$DOTFILES_DIR""/bin/is-supported ""$DOTFILES_DIR""/bin/is-arm64 /opt/homebrew /usr/local)"
 XDG_CONFIG_HOME="$HOME/.config"
 STOW_DIR=$DOTFILES_DIR
 ACCEPT_EULA=Y
@@ -20,7 +20,7 @@ core_macos () {
     # get_brew
     is-executable brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	echo 'eval "$( '"$HOMEBREW_PREFIX"'/bin/brew shellenv )"' >> $HOME/.bash_profile
-	eval "$( ""$HOMEBREW_PREFIX""/bin/brew shellenv )"
+	eval "$(""$HOMEBREW_PREFIX""/bin/brew shellenv)"
 
     # get_git
 	brew install git git-extras
