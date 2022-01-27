@@ -13,7 +13,7 @@ macos: sudo core-macos packages link
 
 linux: core-linux link
 
-core-macos: brew bash git npm rust
+core-macos: brew git npm rust
 
 core-linux:
 	apt-get update
@@ -50,22 +50,6 @@ brew:
 	echo 'eval "$$($(HOMEBREW_PREFIX)/bin/brew shellenv)"' >> $(HOME)/.bash_profile
 	eval "$$($(HOMEBREW_PREFIX)/bin/brew shellenv)"
 	
-bash: BASH=$(HOMEBREW_PREFIX)/bin/bash
-bash: SHELLS=/private/etc/shells
-bash: brew
-ifdef GITHUB_ACTION
-	if ! grep -q $(BASH) $(SHELLS); then \
-		brew install bash bash-completion@2 pcre && \
-		sudo append $(BASH) $(SHELLS) && \
-		sudo chsh -s $(BASH); \
-	fi
-else
-	if ! grep -q $(BASH) $(SHELLS); then \
-		brew install bash bash-completion@2 pcre && \
-		sudo append $(BASH) $(SHELLS) && \
-		chsh -s $(BASH); \
-	fi
-endif
 
 git: brew
 	brew install git 
@@ -85,6 +69,7 @@ cask-apps: brew
 	defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 	xattr -d -r com.apple.quarantine ~/Library/QuickLook
+
 
 node-packages: npm
 	eval $$(fnm env); npm install -g $(shell cat install/npmfile)

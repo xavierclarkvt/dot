@@ -16,7 +16,32 @@ start_sudo () {
 }
 
 core_macos () {
-    echo "good shit, should work I think"
+
+    # get_brew
+    is-executable brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	echo 'eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"' >> $HOME/.bash_profile
+	eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
+    # get_git
+	brew install git git-extras
+
+    # brew_packages
+    brew bundle --file=$DOTFILES_DIR/install/Brewfile || true
+
+    # cask_apps
+    brew bundle --file=$DOTFILES_DIR/install/Caskfile || true
+	defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua" # install hammerspoon config
+	for EXT in $(cat install/Codefile); do code --install-extension $$EXT; done # install vscode extensions
+	xattr -d -r com.apple.quarantine ~/Library/QuickLook 
+
+    # get_npm
+    fnm install --lts # should have been installed from brewfile
+    eval $(fnm env); npm install -g $(cat install/npmfile)
+
+    # get_rust
+    brew install rust
+
+    $DOTFILES_DIR/bin/is-executable stow || brew install stow
 }
 
 core_linux () {
@@ -28,14 +53,14 @@ core_linux () {
 }
 
 start_stow () {
-    for FILE in $(ls -A runcom); do 
+    for FILE in $(ls -A $DOTFILES_DIRruncom); do 
         if [ -f $HOME/$FILE -a ! -h $HOME/$FILE ]; then 
 		    mv -v $HOME/$FILE{,.bak}; 
         fi; 
     done
 	mkdir -p $XDG_CONFIG_HOME
-	stow -t $HOME runcom
-	stow -t $XDG_CONFIG_HOME config
+	stow -t $HOME $DOTFILES_DIR/runcom
+	stow -t $XDG_CONFIG_HOME $DOTFILES_DIR/config
 }
 
 if [[ $OS == 'macos' ]]; then
