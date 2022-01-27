@@ -1,6 +1,10 @@
 # Dot
 
-These are my MacOS and Ubuntu dotfiles. Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want a custom version of this, use his.
+These are my MacOS and Ubuntu dotfiles. Due to it's heavy reliance on Homebrew, really only for MacOS. 
+
+Ubuntu behavior only installs stow and links dotfiles.
+
+Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want a custom version of this, use his.
 
 ## Highlights
 
