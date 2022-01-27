@@ -9,7 +9,7 @@ export ACCEPT_EULA=Y
 
 all: $(OS)
 
-macos: core-macos packages link
+macos: sudo core-macos packages link
 
 linux: core-linux link
 
@@ -25,6 +25,10 @@ stow-macos: brew
 
 stow-linux: core-linux
 	is-executable stow || apt-get -y install stow
+
+sudo:
+	sudo -v
+	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 packages: brew-packages cask-apps node-packages rust-packages
 
