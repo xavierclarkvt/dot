@@ -13,7 +13,7 @@ macos: core-macos packages link
 
 linux: core-linux link
 
-core-macos: brew bash git npm ruby rust
+core-macos: brew git npm ruby rust
 
 core-linux:
 	apt-get update
@@ -44,14 +44,6 @@ unlink: stow-$(OS)
 brew:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
 
-bash: BASH=$(HOMEBREW_PREFIX)/bin/bash
-bash: SHELLS=/private/etc/shells
-bash: brew
-if ! grep -q $(BASH) $(SHELLS); then \
-	brew install bash bash-completion@2 pcre && \
-	sudo append $(BASH) $(SHELLS) && \
-	chsh -s $(BASH); \
-fi
 
 git: brew
 	brew install git git-extras
