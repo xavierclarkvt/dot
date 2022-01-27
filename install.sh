@@ -8,8 +8,11 @@ STOW_DIR=$DOTFILES_DIR
 ACCEPT_EULA=Y
 
 start_sudo () {
+    # Ask for the administrator password upfront
     sudo -v
-	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+    # Keep-alive: update existing `sudo` time stamp until this script has finished
+    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
 core_macos () {
@@ -25,14 +28,17 @@ core_linux () {
 }
 
 start_stow () {
-    for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then \
-		mv -v $(HOME)/$$FILE{,.bak}; fi; done
-	mkdir -p $(XDG_CONFIG_HOME)
-	stow -t $(HOME) runcom
-	stow -t $(XDG_CONFIG_HOME) config
+    for FILE in $(ls -A runcom); do 
+        if [ -f $HOME/$FILE -a ! -h $HOME/$FILE ]; then 
+		    mv -v $HOME/$FILE{,.bak}; 
+        fi; 
+    done
+	mkdir -p $XDG_CONFIG_HOME
+	stow -t $HOME runcom
+	stow -t $XDG_CONFIG_HOME config
 }
 
-if [[$OS == 'macos']]; then
+if [[ $OS == 'macos' ]]; then
     start_sudo
     core_macos
     get_packages
