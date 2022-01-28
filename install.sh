@@ -17,6 +17,9 @@ start_sudo () {
 
 core_macos () {
 
+    # install rosetta (if is m1 mac)
+    is-arm64 && /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
     # get_brew
     is-executable brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	eval "$(""$HOMEBREW_PREFIX""/bin/brew shellenv)"
@@ -30,7 +33,7 @@ core_macos () {
     # cask_apps
     brew bundle --file=$DOTFILES_DIR/install/Caskfile || true
 	defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua" # install hammerspoon config
-	for EXT in $(cat install/Codefile); do code --install-extension $$EXT; done # install vscode extensions
+	for EXT in $(cat install/Codefile); do code --install-extension "$EXT"; done # install vscode extensions
 	xattr -d -r com.apple.quarantine ~/Library/QuickLook 
 
     # get_npm

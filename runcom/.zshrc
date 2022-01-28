@@ -118,15 +118,9 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 ## Highlight section titles in man pages
 export LESS_TERMCAP_md="${yellow}";
-## Append to the Bash history file, rather than overwriting it
-shopt -s histappend
-## Autocorrect typos in path names when using `cd`
-shopt -s cdspell
 
 # Updates to path
 
-## start up FNM (node version manager)
-eval "$(fnm env --use-on-cd)"
 ## Add .dotfiles/bin to path
 if [ -d "$HOME/.dotfiles" ]; then
   DOTFILES_DIR="$HOME/.dotfiles"
@@ -140,6 +134,9 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 ## Add homebrew to path
 export HOMEBREW_PREFIX=$($DOTFILES_DIR/bin/is-supported $DOTFILES_DIR/bin/is-arm64 /opt/homebrew /usr/local)
 eval "$(""$HOMEBREW_PREFIX""/bin/brew shellenv)"
+
+## start up FNM (node version manager)
+eval "$(fnm env --use-on-cd)"
 
 # Aliases
 
