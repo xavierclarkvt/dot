@@ -43,6 +43,12 @@ core_macos () {
     # get_stow
     $DOTFILES_DIR/bin/is-executable stow || brew install stow
 
+    # copy over firefox profile (rewrites any previous versions of these files)
+    if [ -d $HOME/Library/Application\ Support/Firefox ]; then 
+        mv $HOME/Library/Application\ Support/Firefox $HOME/Library/Application\ Support/Firefox.bak
+    fi
+    cp -f $DOTFILES_DIR/Firefox $HOME/Library/Application\ Support
+
     # install Oh-My-ZSH
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 }
