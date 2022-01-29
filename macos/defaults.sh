@@ -70,7 +70,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <key>RunAtLoad</key>
     <true/>
 </dict>
-</plist>'>> /System/Library/LaunchAgents/com.local.KeyRemapping.plist
+</plist>' | tee -a /System/Library/LaunchAgents/com.local.KeyRemapping.plist
 
 # Disable smart quotes and dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
