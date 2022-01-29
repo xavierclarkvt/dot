@@ -176,6 +176,9 @@ defaults write com.apple.dock launchanim -bool false
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
+# Speed up Dock hide and unhide animation
+defaults write com.apple.dock autohide-time-modifier -float .25
+
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
