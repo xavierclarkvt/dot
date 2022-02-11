@@ -153,3 +153,6 @@ alias desktophide="defaults write com.apple.finder CreateDesktop -bool false && 
 alias displays="system_profiler SPDisplaysDataType"
 alias cpu="sysctl -n machdep.cpu.brand_string"
 alias ram="top -l 1 -s 0 | grep PhysMem"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"

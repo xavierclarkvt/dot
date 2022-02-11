@@ -61,6 +61,10 @@ zsh install.sh
 
 ## Post-Installation
 
+- Enable Hammerspoon to see windows
+  - `System Prefs -> Security & Privacy -> Privacy -> Accessibility -> check 'Hammerspoon'`
+  - May need to run hammerspoon once for this option to become available
+
 - `dot dock` (set [Dock items](./macos/dock.sh))
 - `dot macos` (set [macOS defaults](./macos/defaults.sh))
 - Mackup

@@ -13,21 +13,19 @@ The hyper key is defined as `⌘ + ⌥ + ⌃` (control + option + command). Pres
 | Key | App                |
 | --- | ------------------ |
 | F   | Finder             |
-| P   | System Preferences |
 | T   | Terminal           |
 
 ## Window Management
 
-| Key     | Action            |
-| ------- | ----------------- |
-| ←       | Move window left  |
-| →       | Move window right |
-| ↑       | Move window up    |
-| ↓       | Move window down  |
-| i       | Decrease height   |
-| k       | Increase height   |
-| j       | Decrease width    |
-| l       | Increase width    |
-| /       | To next screen    |
-| (space) | Maximize window   |
-| .       | Minimize window   |
+| Key     | Action                              |
+| ------- | -----------------                   |
+| ←       | Move window left half               |
+| →       | Move window right half              |
+| ↑       | Move window up half                 |
+| ↓       | Move window down half               |
+| ;       | Move window top left corner         |
+| '       | Move window top right corner        |
+| .       | Move window bottom left corner      |
+| /       | Move window bottom right corner     |
+| (space) | Maximize window                     |
+| ,       | Minimize window                     |
