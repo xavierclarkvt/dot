@@ -28,21 +28,12 @@ core_macos () {
 
   # brew_packages
   brew bundle --file=$DOTFILES_DIR/install/Brewfile || true
-
-  # cask_apps
-  defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua" # install hammerspoon config
   for EXT in $(cat install/Codefile); do code --install-extension "$EXT"; done # install vscode extensions
   xattr -d -r com.apple.quarantine ~/Library/QuickLook 
 
   # get_npm
   fnm install --lts # should have been installed from brewfile
   eval $(fnm env); npm install -g $(cat install/npmfile)
-
-  # get_rust
-  brew install rust
-
-  # get_stow
-  $DOTFILES_DIR/bin/is-executable stow || brew install stow
 
   # copy over firefox profile (rewrites any previous versions of these files)
   if [ -d $HOME/Library/Application\ Support/Firefox ]; then # if one exists, make a backup
