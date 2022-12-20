@@ -156,3 +156,16 @@ alias ram="top -l 1 -s 0 | grep PhysMem"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+export SDKROOT=$(xcrun --show-sdk-path)
+
+# bun completions
+[ -s "/Users/clark/.bun/_bun" ] && source "/Users/clark/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/Users/clark/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.3
