@@ -7,22 +7,18 @@ Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want 
 ## Highlights
 
 - Minimal efforts to install everything, using a [shell script](./install.sh)
-- Mostly based around Homebrew, Caskroom and Node.js, latest Bash + GNU Utils
-- Great [Window management](./config/hammerspoon/README.md) (using Hammerspoon)
+- Mostly based around Homebrew, Node.js, GNU Utils
 - Fast and colored prompt
 - Updated macOS defaults
-- Well-organized and easy to customize
 - Supports both Apple Silicon (M1) and Intel chips
 
 ## Packages Overview
 
-- [Homebrew](https://brew.sh) (packages: [Brewfile](./install/Brewfile))
-- [homebrew-cask](https://github.com/Homebrew/homebrew-cask) (packages: [Caskfile](./install/Caskfile))
+- [Homebrew](https://brew.sh)
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
 - Latest Git, Python 3, GNU coreutils, curl, Rust
 - Oh-My-ZSH
 - A default Firefox instance
-- [Hammerspoon](https://www.hammerspoon.org) (config: [keybindings & window management](./config/hammerspoon))
 - [Mackup](https://github.com/lra/mackup) (sync application settings)
 - `$EDITOR` (and Git editor) is [GNU nano](https://www.nano-editor.org)
 
@@ -59,16 +55,8 @@ zsh install.sh
 
 ## Post-Installation
 
-- Enable Hammerspoon to see windows
-  - `System Prefs -> Security & Privacy -> Privacy -> Accessibility -> check 'Hammerspoon'`
-  - May need to run hammerspoon once for this option to become available
-
 - `dot dock` (set [Dock items](./macos/dock.sh))
 - `dot macos` (set [macOS defaults](./macos/defaults.sh))
-- Mackup
-  - Log in to Dropbox (and wait until synced)
-  - `ln -s ~/.config/mackup/.mackup.cfg ~` (until [#632](https://github.com/lra/mackup/pull/632) is fixed)
-  - `mackup restore`
 
 ## The `dotfiles` command
 

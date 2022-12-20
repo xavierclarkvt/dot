@@ -119,6 +119,15 @@ export LANG="en_US"
 ## Highlight section titles in man pages
 export LESS_TERMCAP_md="${yellow}";
 
+# Aliases
+### start screen saver
+alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
+### log off
+alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+### Show/hide desktop icons
+alias desktopshow="defaults write com.apple.finder CreateDesktop -bool true && killfinder"
+alias desktophide="defaults write com.apple.finder CreateDesktop -bool false && killfinder"
+
 # Updates to path
 
 ## Add .dotfiles/bin to path
@@ -138,25 +147,9 @@ eval "$(""$HOMEBREW_PREFIX""/bin/brew shellenv)"
 ## start up FNM (node version manager)
 eval "$(fnm env --use-on-cd)"
 
-# Aliases
-
-## macOS specific
-alias cask="brew cask"
-### start screen saver
-alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
-### log off
-alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-### Show/hide desktop icons
-alias desktopshow="defaults write com.apple.finder CreateDesktop -bool true && killfinder"
-alias desktophide="defaults write com.apple.finder CreateDesktop -bool false && killfinder"
-### Show system information
-alias displays="system_profiler SPDisplaysDataType"
-alias cpu="sysctl -n machdep.cpu.brand_string"
-alias ram="top -l 1 -s 0 | grep PhysMem"
+## Add jre to path
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export SDKROOT=$(xcrun --show-sdk-path)
 
 # bun completions
@@ -166,6 +159,7 @@ export SDKROOT=$(xcrun --show-sdk-path)
 export BUN_INSTALL="/Users/clark/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# add ruby install stuff
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.1.3
+chruby $(chruby | tail -1 | xargs)

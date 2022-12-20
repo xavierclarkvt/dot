@@ -1,7 +1,6 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(dirname $0)"
-OS="$(""$DOTFILES_DIR""/bin/is-supported ""$DOTFILES_DIR""/bin/is-macos macos linux)"
 HOMEBREW_PREFIX="$(""$DOTFILES_DIR""/bin/is-supported ""$DOTFILES_DIR""/bin/is-arm64 /opt/homebrew /usr/local)"
 XDG_CONFIG_HOME="$HOME/.config"
 STOW_DIR=$DOTFILES_DIR
@@ -34,6 +33,12 @@ core_macos () {
   # get_npm
   fnm install --lts # should have been installed from brewfile
   eval $(fnm env); npm install -g $(cat install/npmfile)
+
+  # install bun (like npm)
+  curl -fsSL https://bun.sh/install | bash
+
+  # install new version of ruby
+  ruby-install ruby
 
   # copy over firefox profile (rewrites any previous versions of these files)
   if [ -d $HOME/Library/Application\ Support/Firefox ]; then # if one exists, make a backup
