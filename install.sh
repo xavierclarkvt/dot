@@ -30,7 +30,6 @@ core_macos () {
   brew bundle --file=$DOTFILES_DIR/install/Brewfile || true
 
   # cask_apps
-  brew bundle --file=$DOTFILES_DIR/install/Caskfile || true
   defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua" # install hammerspoon config
   for EXT in $(cat install/Codefile); do code --install-extension "$EXT"; done # install vscode extensions
   xattr -d -r com.apple.quarantine ~/Library/QuickLook 
