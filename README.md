@@ -1,8 +1,6 @@
 # Dot
 
-These are my MacOS and Ubuntu dotfiles. Due to it's heavy reliance on Homebrew, really only for MacOS. 
-
-Ubuntu behavior only installs stow and links dotfiles. Does not support bash shells, you will need to install `zsh`.
+These are my MacOS dotfiles. Relies heavily on homebrew, but could be extrapolated to support linux.
 
 Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want a custom version of this, use his.
 
