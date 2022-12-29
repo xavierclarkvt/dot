@@ -57,6 +57,7 @@ user_pref("experiments.activeExperiment", false);
 user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");
 user_pref("experiments.supported", false);
+user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("extensions.ClearURLs@kevinr.whiteList", "");
 user_pref("extensions.Decentraleyes@ThomasRientjes.whiteList", "");
 user_pref("extensions.FirefoxMulti-AccountContainers@mozilla.whiteList", "");
