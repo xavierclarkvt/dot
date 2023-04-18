@@ -40,6 +40,7 @@ brew "unar"
 brew "wget"
 brew "yt-dlp"
 
+cask "jiggler"
 cask "brave-browser"
 cask "dbeaver-community"
 cask "discord"
