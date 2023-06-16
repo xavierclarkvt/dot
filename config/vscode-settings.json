@@ -1,0 +1,34 @@
+{
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.minimap.enabled": false,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "svelte.enable-ts-plugin": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "markdown.extension.tableFormatter.normalizeIndentation": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "editor.detectIndentation": false,
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "window.zoomLevel": 1,
+  "redhat.telemetry.enabled": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "jupyter.askForKernelRestart": false,
+  "[scss]": {
+    "editor.suggest.insertMode": "replace"
+  },
+  "[rust]": {
+    "editor.tabSize": 4
+  },
+  "editor.rulers": [
+    80
+  ],
+  "[python]": {
+    "editor.formatOnType": true
+  }
+}

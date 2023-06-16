@@ -23,11 +23,15 @@ core_macos () {
   eval "$(""$HOMEBREW_PREFIX""/bin/brew shellenv)"
 
   # get_git
-  brew install git git-extras
+  brew install git git-extras git-lfs
 
   # brew_packages
   brew bundle --file=$DOTFILES_DIR/install/Brewfile || true
-  for EXT in $(cat install/Codefile); do code --install-extension "$EXT"; done # install vscode extensions
+
+  # install vscode extensions and set settings
+  for EXT in $(cat install/Codefile); do codium --install-extension "$EXT"; done
+  cp config/vscode-settings.json $HOME/Library/Application\ Support/VSCodium/User/settings.json
+
   xattr -d -r com.apple.quarantine ~/Library/QuickLook 
 
   # get_npm
