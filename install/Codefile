@@ -1,6 +1,6 @@
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
-esbenp.prettier-vscode
+esbenp.prettier-vscode@11.7.0
 ginfuru.ginfuru-vscode-jekyll-syntax
 maattdd.gitless
 ms-vscode.cpptools
