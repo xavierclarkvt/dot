@@ -1,12 +1,8 @@
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
-esbenp.prettier-vscode@11.7.0
-ginfuru.ginfuru-vscode-jekyll-syntax
-maattdd.gitless
-ms-vscode.cpptools
+esbenp.prettier-vscode
+eamodio.gitlens@11.7.0
 redhat.vscode-yaml
 rust-lang.rust-analyzer
-sharat.vscode-brewfile
 svelte.svelte-vscode
 wayou.vscode-todo-highlight
-yzhang.markdown-all-in-one
