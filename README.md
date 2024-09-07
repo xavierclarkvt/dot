@@ -10,16 +10,15 @@ Forked from [webpro/dotfiles](https://github.com/webpro/dotfiles) - if you want 
 - Mostly based around Homebrew, Node.js, GNU Utils
 - Fast and colored prompt
 - Updated macOS defaults
-- Supports both Apple Silicon (M1) and Intel chips
+- Supports Apple Silicon (M1) (Maybe intel chips)
 
 ## Packages Overview
 
 - [Homebrew](https://brew.sh)
-- [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
-- Latest Git, Python 3, GNU coreutils, curl, Rust
+- [Node.js + npm LTS](https://nodejs.org/en/download/)
+- Latest Git, GNU coreutils, Rust
 - Oh-My-ZSH
 - A default Firefox instance
-- [Mackup](https://github.com/lra/mackup) (sync application settings)
 - `$EDITOR` (and Git editor) is [GNU nano](https://www.nano-editor.org)
 
 ## Installation
@@ -29,14 +28,6 @@ On a sparkling fresh installation of macOS:
 ```bash
 sudo softwareupdate -i -a
 xcode-select --install
-```
-
-If you don't have `zsh` as your current shell, you will need to install it:
-
-```bash
-sudo apt -y install zsh
-chsh -s $(which zsh)
-exec zsh -l
 ```
 
 The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS). Next you will need to clone the repo manually into the desired location:

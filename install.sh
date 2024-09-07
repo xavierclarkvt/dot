@@ -15,15 +15,9 @@ start_sudo () {
 }
 
 core_macos () {
-  # install rosetta (if is m1 mac)
-  is-arm64 && /usr/sbin/softwareupdate --install-rosetta --agree-to-license
-
   # get_brew
   is-executable brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(""$HOMEBREW_PREFIX""/bin/brew shellenv)"
-
-  # get_git
-  brew install git git-extras git-lfs
 
   # brew_packages
   brew bundle --file=$DOTFILES_DIR/install/Brewfile || true
@@ -32,17 +26,8 @@ core_macos () {
   for EXT in $(cat install/Codefile); do codium --install-extension "$EXT"; done
   cp config/vscode-settings.json $HOME/Library/Application\ Support/VSCodium/User/settings.json
 
-  xattr -d -r com.apple.quarantine ~/Library/QuickLook 
-
   # get_npm
   fnm install --lts # should have been installed from brewfile
-  eval $(fnm env); npm install -g $(cat install/npmfile)
-
-  # install bun (like npm)
-  curl -fsSL https://bun.sh/install | bash
-
-  # install new version of ruby
-  ruby-install ruby
 
   # copy over firefox profile (rewrites any previous versions of these files)
   if [ -d $HOME/Library/Application\ Support/Firefox ]; then # if one exists, make a backup

@@ -8,27 +8,9 @@ sub_help () {
   echo "Usage: $BIN_NAME <command>"
   echo
   echo "Commands:"
-  echo "   clean            Clean up caches (brew, gem)"
   echo "   dock             Apply macOS Dock settings"
   echo "   help             This help message"
   echo "   macos            Apply macOS system defaults"
-  echo "   update           Update packages and pkg managers (OS, brew, npm, gem)"
-}
-
-sub_update () {
-  sudo softwareupdate -i -a
-  brew update
-  brew upgrade
-  brew cleanup
-  npm install npm -g
-  npm update -g
-  gem update --system
-  gem update
-}
-
-sub_clean () {
-  brew cleanup
-  gem cleanup
 }
 
 sub_macos () {

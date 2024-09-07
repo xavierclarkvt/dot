@@ -158,8 +158,3 @@ export SDKROOT=$(xcrun --show-sdk-path)
 # bun
 export BUN_INSTALL="/Users/clark/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# add ruby install stuff
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-chruby $(chruby | tail -1 | xargs)

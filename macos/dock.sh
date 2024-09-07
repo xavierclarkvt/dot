@@ -7,6 +7,5 @@ dockutil --no-restart --add "/Applications/Brave.app"
 dockutil --no-restart --add "/Applications/LibreOffice.app"
 dockutil --no-restart --add "/System/Applications/Utilities/Terminal.app"
 dockutil --no-restart --add "/Applications/VSCodium.app"
-dockutil --no-restart --add "/Applications/Discord.app"
 
 killall Dock
