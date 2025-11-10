@@ -49,28 +49,29 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 ###############################################################################
 
 # Remap capslock to left control - util here: https://hidutil-generator.netlify.app/
-echo '<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.local.KeyRemapping</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/bin/hidutil</string>
-        <string>property</string>
-        <string>--set</string>
-        <string>{"UserKeyMapping":[
-            {
-              "HIDKeyboardModifierMappingSrc": 0x700000039,
-              "HIDKeyboardModifierMappingDst": 0x7000000E0
-            }
-        ]}</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-</dict>
-</plist>' | tee -a /System/Library/LaunchAgents/com.local.KeyRemapping.plist
+# TODO: This doesn't work on modern macs
+# echo '<?xml version="1.0" encoding="UTF-8"?>
+# <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+# <plist version="1.0">
+# <dict>
+#     <key>Label</key>
+#     <string>com.local.KeyRemapping</string>
+#     <key>ProgramArguments</key>
+#     <array>
+#         <string>/usr/bin/hidutil</string>
+#         <string>property</string>
+#         <string>--set</string>
+#         <string>{"UserKeyMapping":[
+#             {
+#               "HIDKeyboardModifierMappingSrc": 0x700000039,
+#               "HIDKeyboardModifierMappingDst": 0x7000000E0
+#             }
+#         ]}</string>
+#     </array>
+#     <key>RunAtLoad</key>
+#     <true/>
+# </dict>
+# </plist>' | tee -a /System/Library/LaunchAgents/com.local.KeyRemapping.plist
 
 # Disable smart quotes and dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
@@ -86,13 +87,6 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-###############################################################################
-# Trackpad, mouse, Bluetooth accessories                                      #
-###############################################################################
-
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 ###############################################################################
 # Screen                                                                      #
@@ -149,11 +143,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# Disable disk image verification
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
-
 # Always open everything in Finder's list view.
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
@@ -193,8 +182,8 @@ defaults write com.Apple.Dock show-recents -bool false
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Appearance
-defaults write com.apple.terminal "Default Window Settings" -string "Pro"
-defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
+defaults write com.apple.terminal "Default Window Settings" -string "Clear Dark"
+defaults write com.apple.terminal "Startup Window Settings" -string "Clear Dark"
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
 ###############################################################################
@@ -239,6 +228,8 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
+
+echo "You should restart your mac for these changes to take effect"
 
 for app in "Address Book" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "iCal"; do
   killall "${app}" &> /dev/null

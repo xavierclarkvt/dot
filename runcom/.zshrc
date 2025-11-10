@@ -158,3 +158,6 @@ export SDKROOT=$(xcrun --show-sdk-path)
 # bun
 export BUN_INSTALL="/Users/clark/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pipx 
+export PATH="/Users/x/.local/bin:$PATH"
